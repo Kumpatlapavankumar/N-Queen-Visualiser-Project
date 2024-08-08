@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-Queens Visualizer</title>
+    <link rel="stylesheet" href="styling.css">    
+</head>
+<body>  
+    <header class="header">
+        <h2>
+          N-Queens Visualiser <i class="fas fa-crown" style="color: #fdfffc"></i>
+        </h2>
+      </header>
+    <div class="controls">
+        <label for="queenInput">Total number of queens:</label>
+        <input type="number" id="queenInput" min="1" max="10" value="8">
+        <button onclick="startVisualization()">Start</button>
+        <div class="prog"></div>
+        <label for="speedInput">Visualization speed:</label>
+        <input type="range"  min="0" max="85" value="50"class="slider" id="slider" >
+        <div id="progressBar"></div>
+    </div>
+    <div id="board"></div>
+
+    <script src="tracking.js"></script>
+</body>
+</html>
