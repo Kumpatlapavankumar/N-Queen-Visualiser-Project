@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color:white; /* Light gray background */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 3rem; /* Adjust size as needed */
+    color: #FF9F1C; /* Blue color for heading */
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 10px 20px; /* Add padding for better readability */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls input[type="number"],
+.controls input[type="range"] {
+    padding: 5px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1rem;
+}
+.controls button {
+    padding: 8px 20px;
+    background-color: #FF9F1C;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #f5b000;  
+}
+
+.controls #progressBar {
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
+    margin-top: 5px;
+    position: relative;
+}
+
+.controls #progressBar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0;
+    background-color: #FF9F1C;
+}
+.slider{
+    color:yellow;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Board Styles */
+#board {
+    display: grid;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+.even {
+    background-color: #FCCD90;
+}
+
+.odd {
+    background-color: #FF9F1C;
+}
+.queen {
+    font-size: 24px;
+}
+
+.queen-cell {
+    background-color: rgb(238, 156, 144);
+}
+
+.checking-cell {
+    background-color: pink;
+}
+
+label{
+    font-size: x-large;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls label {
+        margin-bottom: 5px;
+    }
+
+    .controls button {
+        margin-top: 10px;
+    }
+} 
+/* .conflict {
+    background-color: #f00;
+}
+
+@keyframes blink {
+    from {
+        background-color: #ff0;
+    }
+    to {
+        background-color: #ffffe0;
+    }
+}
+
+.conflict-blink {
+    animation: blink 1s infinite alternate;
+} */
+.cell {
+    /* Your existing styles */
+    position: relative; /* Ensure relative positioning for conflict indication */
+}
+
+.cell.blinking::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 0, 0); /* Adjust as needed */
+    animation: blink-animation 0.5s ease-in-out infinite alternate; /* Blink animation */
+}
+
+@keyframes blink-animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.current-checking {
+    /* Style to indicate the currently checking column */
+    outline: 2px solid pink; /* Example outline for highlighting */
+    /* Add other visual cues as needed */
+}
